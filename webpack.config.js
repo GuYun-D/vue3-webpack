@@ -10,5 +10,23 @@ module.exports = {
     path: path.resolve(__dirname, './build'),
     // 打包后生成的文件名
     filename: "build.js"
+  },
+
+  // 配置loader
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        // loader: "css-loader"
+        // 完整写法
+        // use: [
+        //   {
+        //     loader: "css-loader",
+        //     option: {}
+        //   }
+        // ]
+        use: ["css-loader"]
+      }
+    ]
   }
 }

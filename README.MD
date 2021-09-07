@@ -83,3 +83,29 @@
   ```
 
   然后在命令行中执行npm run build，webpack会自动读取配置文件
+<br/>
+  > 当然我们也可以不把名字叫做webpack.config.js,也可以叫做是其他的，如xxxx.config.js
+  这样的话就要修改脚本配置了：
+
+  ```js
+    ...
+    "scripts": {
+      "build": "webpack --config xxxxx.config.js"
+    },
+    ....
+  ```
+
+
+# 打包css
+## 安装css-loader
+```js
+npm i css-loader
+```
+
+## 使用css-loader
+- 内联
+  ```js
+    import 'css-loader!../css/style.css'
+  ```
+- cli（webpack5不再使用）
+- 配置
