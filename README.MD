@@ -173,3 +173,7 @@ css-loader只负责将css进行打包，但是并没有将打包好的css插入�
     }]
     ...
   ```
+- 将postcss配置抽取到postcss.config.js文件中
+- postcss-preset-env
+  - 帮助我们将一些现代的css特性，转换成大多数浏览器认识的css，并且会根据目标浏览器或者运行时环境添加所需要的poilfill
+  - 其内部也相当于是内置了autoprefixer

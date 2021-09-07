@@ -3,4 +3,8 @@
   font-size: 20px;
   font-weight: bold;
   user-select: none;
+  /* 
+    大部分浏览器并不识别8位的颜色值，使用ostcss-preset-env进行转化
+  */
+  background-color: #12345678;
 }
