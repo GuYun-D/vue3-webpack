@@ -33,7 +33,8 @@
 - 执行局部的webpack
   **在命令行中直接执行webpack命令时，优先执行的是全局的webpack**
   局部的webpack存在于项目中的node_modeules中的.bin目录里面，所以执行局部的webpack方法是：
-  - .\node_modules\.bin\webpack(注意必须是“\”,而不是“/”)
+  - .\node_modules\.bin\webpack
+  如果在cmd中运行，必须是"\",如果在如vscode内置的终端运行，可以写成"/"或者"\"
   - npx webpack (简单易记)
   - 添加脚本，在package.json中的script中添加一个脚本
   ```js
@@ -46,3 +47,39 @@
   ```js
     npm run build
   ```
+
+# Webpack配置文件
+以上三种打包文件的方法都是默认以当前文件下的src目录下的index.js为打包的入口
+- 自定义打包的入口和出口
+  cmd:
+  ```js
+    npx webpack --entery .\src\main.js --output-path .\build
+  ```
+
+  package.json：
+  ```js
+    "scripts": {
+      "build": "webpack --entery .\src\main.js --output-path .\build"
+    },
+  ```
+
+- 最常用以及最灵活的方式：添加webpack的配置文件
+  **根目录下**创建一个名为webpack.config.js的文件，该文件是运行在node环境的，所以要使用CommentJS规范，详情见webpack.config.js的文件
+
+  ```json
+    const path = require('path')
+    module.exports = {
+      // 配置打包入口
+      entry: './src/index.js',
+
+      // 配置打包出口
+      output: {
+        // 文件夹名称，要求必须是绝对路径
+        path: path.resolve(__dirname, './build'),
+        // 打包后生成的文件名
+        filename: "build.js"
+      }
+    }
+  ```
+
+  然后在命令行中执行npm run build，webpack会自动读取配置文件
