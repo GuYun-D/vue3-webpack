@@ -136,3 +136,17 @@ css-loader只负责将css进行打包，但是并没有将打包好的css插入�
 ```
 
 **loader执行是有顺序的，从下到上，从右向左**
+
+## less-loader
+- 安装依赖
+  ```js
+    npm i less less-loader -D
+  ```
+
+- 配置
+  ```js
+  {
+    test: /\.less$/,
+    use: ["style-loader", "css-loader", "less-loader"]
+  }
+  ```
