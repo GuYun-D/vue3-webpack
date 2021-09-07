@@ -15,28 +15,37 @@ module.exports = {
   // 配置loader
   module: {
     rules: [
-      {
-        test: /\.css$/,
-        // loader: "css-loader"
-        // 完整写法
-        // use: [
-        //   {
-        //     loader: "css-loader",
-        //     option: {}
-        //   }
-        // ]
-        use: ["style-loader", "css-loader", "postcss-loader"
-          // {
-          //   loader: "postcss-loader", options: {
-          //     postcssOptions: {
-          //       plugins: [require("autoprefixer")]
-          //     }
-          //   }
-          // }
+      // {
+      //   test: /\.css$/,
+      //   // loader: "css-loader"
+      //   // 完整写法
+      //   // use: [
+      //   //   {
+      //   //     loader: "css-loader",
+      //   //     option: {}
+      //   //   }
+      //   // ]
+      //   use: ["style-loader", "css-loader", "postcss-loader"
+      //     // {
+      //     //   loader: "postcss-loader", options: {
+      //     //     postcssOptions: {
+      //     //       plugins: [require("autoprefixer")]
+      //     //     }
+      //     //   }
+      //     // }
+      //   ]
+      // }, {
+      //   test: /\.less$/,
+      //   use: ["style-loader", "css-loader", "less-loader"]
+      // },
+       {
+        test: /\.(less|css)$/,
+        use: [
+          "style-loader",
+          "css-loader",
+          "postcss-loader",
+          "less-loader"
         ]
-      }, {
-        test: /\.less$/,
-        use: ["style-loader", "css-loader", "less-loader"]
       }
     ]
   }
