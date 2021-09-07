@@ -109,3 +109,22 @@ npm i css-loader
   ```
 - cli（webpack5不再使用）
 - 配置
+  ```js
+    // 配置loader
+    module: {
+      rules: [
+        {
+          test: /\.css$/,
+          // loader: "css-loader"
+          // 完整写法
+          // use: [
+          //   {
+          //     loader: "css-loader",
+          //     option: {}
+          //   }
+          // ]
+          use: ["css-loader"]
+        }
+      ]
+    }
+  ```
