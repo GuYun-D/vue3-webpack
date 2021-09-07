@@ -25,13 +25,15 @@ module.exports = {
         //     option: {}
         //   }
         // ]
-        use: ["style-loader", "css-loader", {
-          loader: "postcss-loader", options: {
-            postcssOptions: {
-              plugins: [require("autoprefixer")]
-            }
-          }
-        }]
+        use: ["style-loader", "css-loader", "postcss-loader"
+          // {
+          //   loader: "postcss-loader", options: {
+          //     postcssOptions: {
+          //       plugins: [require("autoprefixer")]
+          //     }
+          //   }
+          // }
+        ]
       }, {
         test: /\.less$/,
         use: ["style-loader", "css-loader", "less-loader"]
