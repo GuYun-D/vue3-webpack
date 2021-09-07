@@ -4,7 +4,7 @@
   "description": "基于webpack5搭建的打包vue3和typescript的环境",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "webpack"
   },
   "repository": {
     "type": "git",
@@ -18,5 +18,9 @@
   "bugs": {
     "url": "https://github.com/GuYun-D/vue3-webpack/issues"
   },
-  "homepage": "https://github.com/GuYun-D/vue3-webpack#readme"
+  "homepage": "https://github.com/GuYun-D/vue3-webpack#readme",
+  "devDependencies": {
+    "webpack": "^5.52.0",
+    "webpack-cli": "^4.8.0"
+  }
 }
