@@ -150,3 +150,26 @@ css-loader只负责将css进行打包，但是并没有将打包好的css插入�
     use: ["style-loader", "css-loader", "less-loader"]
   }
   ```
+
+## postcss
+- 什么是postcss
+  - 一个通过js来转换样式的工具
+  - 进行一些css的转换和适配，比如自动添加浏览器前缀，css样式的重置
+- 使用postcss
+  查找postcss在构建工具中的扩展，如postcss-loader
+- 安装
+  ```js
+    npm i postcss postcss-loader autoprefixer -D
+  ```
+- 使用
+  ```js
+    ...
+    use: ["style-loader", "css-loader", {
+      loader: "postcss-loader", options: {
+        postcssOptions: {
+          plugins: [require("autoprefixer")]
+        }
+      }
+    }]
+    ...
+  ```
