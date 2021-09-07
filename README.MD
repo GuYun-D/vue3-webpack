@@ -128,3 +128,11 @@ npm i css-loader
       ]
     }
   ```
+
+## style-loader
+css-loader只负责将css进行打包，但是并没有将打包好的css插入到html中
+```js
+  use: ["style-loader","css-loader"]
+```
+
+**loader执行是有顺序的，从下到上，从右向左**
