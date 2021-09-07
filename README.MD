@@ -194,3 +194,5 @@ css-loader只负责将css进行打包，但是并没有将打包好的css插入�
 ## 其他资源的打包
 
 **file-loader**
+- 作背景图的图片直接使用该loader
+- 作为img的src的资源的就要将该图片通过import的方法导入进来
