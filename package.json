@@ -1,0 +1,22 @@
+{
+  "name": "vue3-webpack",
+  "version": "1.0.0",
+  "description": "基于webpack5搭建的打包vue3和typescript的环境",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GuYun-D/vue3-webpack.git"
+  },
+  "keywords": [
+    "webpack，vue，typescript，打包环境"
+  ],
+  "author": "孤云",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GuYun-D/vue3-webpack/issues"
+  },
+  "homepage": "https://github.com/GuYun-D/vue3-webpack#readme"
+}
