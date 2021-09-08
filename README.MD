@@ -334,3 +334,10 @@ new DefinePlugin({
     ]
   })
   ```
+
+# mode的配置
+- development 打包后的bundle.js是以eavl函数包裹的
+- production 打包后就一行
+
+# devtool
+- source-map建立与js的映射，方便浏览器调试程序

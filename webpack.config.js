@@ -5,6 +5,9 @@ const { DefinePlugin } = require('webpack')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 module.exports = {
+  mode: "development",
+  devtool: "source-map",
+
   // 配置打包入口
   entry: './src/index.js',
 
@@ -111,7 +114,5 @@ module.exports = {
         }
       ]
     })
-  ],
-
-  mode: "production"
+  ]
 }
