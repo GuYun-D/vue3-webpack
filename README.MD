@@ -246,4 +246,62 @@ webpack5之前加载资源都是使用loader，5之后就可以直接使用资�
   }
   ```
 
-## 配置html模板
+## 配置html模板：HtmlWebpackPlugin
+**根目录中的index.html就可以不要了**
+```js
+  npm i html-webpack-plugin -D
+```
+
+- 使用
+```js
+const HtmlWebpackPluign = require('html-webpack-plugin')
+
+module.exports = {
+  ...
+  plugins: [
+    // 直接这样，插件会使用自己的html模板，不符合vue的使用，所以我们要自定义一个模板
+    // new HtmlWebpackPluign()
+    new HtmlWebpackPluign({
+      template: "./public/index.html",
+      title: "我是htmlWebpackPlugin配置的title"
+    })
+  ]
+  ...
+}
+```
+
+## 添加常量:DefinePlugin
+DefinePlugin是webpack内置的插件，允许在编译的时候创建一个配置的全局常量
+
+```js
+const {DefinePlugin} = require('webpack')
+
+...
+new DefinePlugin({
+  BASE_URL: "'./'"
+})
+...
+```
+
+上面俩的html
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= htmlWebpackPlugin.options.title %></title>
+  <link rel="icon" href="<%= BASE_URL %>favicon.icon">
+</head>
+<body>
+  <noscript>
+    <strong>
+      we'are sorry but <%= htmlWebpackPlugin.options.title %> doesn't work
+      properly widthout JavaScript enabled. Please enable it to continue
+    </strong>
+  </noscript>
+  <div id="app"></div>
+</body>
+</html>
+```

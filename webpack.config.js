@@ -1,5 +1,7 @@
 const path = require('path')
-const {CleanWebpackPlugin}  = require('clean-webpack-plugin')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const HtmlWebpackPluign = require('html-webpack-plugin')
+const { DefinePlugin } = require('webpack')
 
 module.exports = {
   // 配置打包入口
@@ -10,7 +12,7 @@ module.exports = {
     // 文件夹名称，要求必须是绝对路径
     path: path.resolve(__dirname, './build'),
     // 打包后生成的文件名
-    filename: "buildle.js"
+    filename: "js/buildle.js"
   },
 
   // 配置loader
@@ -81,6 +83,15 @@ module.exports = {
 
   // 配置插件
   plugins: [
-    new CleanWebpackPlugin()
-  ]
+    new CleanWebpackPlugin(),
+    new HtmlWebpackPluign({
+      template: "./public/index.html",
+      title: "我是htmlWebpackPlugin配置的title"
+    }),
+    new DefinePlugin({
+      BASE_URL: "'./'"
+    })
+  ],
+
+  mode: "production"
 }
