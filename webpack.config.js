@@ -3,7 +3,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const HtmlWebpackPluign = require('html-webpack-plugin')
 const { DefinePlugin } = require('webpack')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
-const {VueLoaderPlugin} = require('vue-loader/dist/index')
+const { VueLoaderPlugin } = require('vue-loader/dist/index')
 
 module.exports = {
   mode: "development",
@@ -82,7 +82,7 @@ module.exports = {
         generator: {
           filename: "font/[name]_[hash:6][ext]"
         }
-      }, 
+      },
       // {
       //   test: /\.js$/,
       //   use: {
@@ -115,7 +115,13 @@ module.exports = {
       title: "我是htmlWebpackPlugin配置的title"
     }),
     new DefinePlugin({
-      BASE_URL: "'./'"
+      BASE_URL: "'./'",
+      // 对vue2做适配，默认是true，源码就会有包含一份代码对这些代码进行适配
+      // 如果使用的是setup的话，那就配置为false，不支持options Api，最后会树摇
+      // 将兼容代码去掉
+      __VUE_OPTIONS_API__: true,
+      // 在生产环境下要不要支持devtools
+      __VEU_PROD_DEVTOOLS__: false
     }),
     new CopyWebpackPlugin({
       // 匹配规则集

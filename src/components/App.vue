@@ -4,11 +4,15 @@
 
 <script>
 export default {
-  data() {
-    return {
-      msg: "哈哈哈啊哈哈哈哈",
-    };
-  },
+  // data() {
+  //   return {
+  //     msg: "哈哈哈啊哈哈哈哈",
+  //   };
+  // }
+  setup(){
+    const msg = "日"
+    return {msg}
+  }
 };
 </script>
 

@@ -3,7 +3,7 @@ const { priceFormmat } = require('./js/foemat')
 import './js/element'
 import './js/es'
 
-import { createApp } from 'vue/dist/vue.esm-bundler'
+import { createApp } from 'vue'
 import App from './components/App.vue'
 
 console.log(sum(12, 46));
