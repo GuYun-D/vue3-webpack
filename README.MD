@@ -353,3 +353,54 @@ new DefinePlugin({
 - babel配置文件
   - babel.config.js
   - .babelrc.json:早期使用的方式，配置起来比较麻烦
+
+# vue单文件打包
+
+## vue打包之后不同版本
+- vue(.runtime).global(.prod).js
+  - 通过浏览器中的script直接使用
+  - 通过cdn引入的
+  - 会暴漏一个全局的Vue
+  - .prod就是代码经过丑化的
+- vue(.runtime).esm-browser(.prod).js
+  - 通过原生es模块导入使用（在浏览器中通过<script type="module">）
+- vue(.runtime).esm-bundle.js
+  - 用于构建工具，默认使用的是vue.runtime.esm-bundle.js
+  - 如果我们需要解析模板，那么就要手动指定vue.esm-bundle.js
+  ```js
+    import { createApp } from 'vue/dist/vue.esm-bundler'
+  ```
+- vue.cjs(.prod).js
+  服务端渲染使用的，通过require导入
+
+## 三种方式在编写DOM时
+- template模板
+- render函数的方式，使用h函数编写
+- 通过.vue文件，使用vue-loader进行解析
+  
+## vue-loader
+- 安装依赖
+  ```js
+  npm i vue-loader@next @vue/compiler-sfc -D
+  ```
+- 使用
+  ```js
+  const {VueLoaderPlugin} = require('vue-loader/dist/index')
+  module.exports = {
+    ...
+    module: {
+      rules: [
+        ...
+        {
+          test: /\.vue$/,
+          loader: "vue-loader"
+        }
+      ]
+    },
+
+    plugins: [
+      ...
+      new VueLoaderPlugin()
+    ]
+  }
+  ```
