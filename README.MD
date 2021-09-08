@@ -341,3 +341,15 @@ new DefinePlugin({
 
 # devtool
 - source-map建立与js的映射，方便浏览器调试程序
+
+# babel
+- babel是一个工具链，主要用于旧浏览器或者环境中将es6以上的代码转换成兼容旧版本的js
+- 包括语法转化，源代码转化
+- babel也可以独立使用
+- 工具
+  - @babel/core 
+  - 预设：@babel/preset-env,通过使用预设对语法进行转换，否则就要一个一个下载对应的语法插件
+  - babel-loader
+- babel配置文件
+  - babel.config.js
+  - .babelrc.json:早期使用的方式，配置起来比较麻烦

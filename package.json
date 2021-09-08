@@ -20,7 +20,10 @@
   },
   "homepage": "https://github.com/GuYun-D/vue3-webpack#readme",
   "devDependencies": {
+    "@babel/core": "^7.15.5",
+    "@babel/preset-env": "^7.15.4",
     "autoprefixer": "^10.3.4",
+    "babel-loader": "^8.2.2",
     "clean-webpack-plugin": "^4.0.0",
     "copy-webpack-plugin": "^9.0.1",
     "css-loader": "^6.2.0",
