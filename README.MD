@@ -223,3 +223,27 @@ webpack5之前加载资源都是使用loader，5之后就可以直接使用资�
 - asset:在导出一个data url和发送一个单独的文件之间自动选择
 
 ## 字体文件打包
+
+
+# 插件的使用
+
+## 自动删除已经打包好的build文件：cleanWebpackPlugin
+
+- 安装
+  ```js
+    npm i clean-webpack-plugin -D
+  ```
+- 使用
+  ```js
+  const {CleanWebpackPlugin}  = require('clean-webpack-plugin')
+
+  module.exports = {
+    ...
+    plugins: [
+      new CleanWebpackPlugin()
+    ]
+    ...
+  }
+  ```
+
+## 配置html模板

@@ -21,6 +21,7 @@
   "homepage": "https://github.com/GuYun-D/vue3-webpack#readme",
   "devDependencies": {
     "autoprefixer": "^10.3.4",
+    "clean-webpack-plugin": "^4.0.0",
     "css-loader": "^6.2.0",
     "file-loader": "^6.2.0",
     "less": "^4.1.1",
