@@ -66,7 +66,7 @@
 - 最常用以及最灵活的方式：添加webpack的配置文件
   **根目录下**创建一个名为webpack.config.js的文件，该文件是运行在node环境的，所以要使用CommentJS规范，详情见webpack.config.js的文件
 
-  ```json
+  ```js
     const path = require('path')
     module.exports = {
       // 配置打包入口
@@ -196,3 +196,15 @@ css-loader只负责将css进行打包，但是并没有将打包好的css插入�
 **file-loader**
 - 作背景图的图片直接使用该loader
 - 作为img的src的资源的就要将该图片通过import的方法导入进来
+
+# 文件命名规则
+保留原来的文件名，扩展名，同时为了防止重复，包含一个hash值
+使用placeholder就可以完成
+- [ext]：处理文件的扩展名
+- [name]: 处理文件的名称
+- [hash]: 文件的内容，使用MD4的散列函数生成，生成一个128位的hash值（32个十六进制）
+- [contenthash]: 在file-loader中和[hash]结果是一致的
+- [hash:<length>]:截图hash的长度，，默认32位太长
+- [path]:文件相对于webpack配置文件的路径
+
+https://webpack.docschina.org/loaders/

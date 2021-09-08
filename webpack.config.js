@@ -47,8 +47,14 @@ module.exports = {
           "less-loader"
         ]
       }, {
-        test: '/\.(jpg|png|gif|svg|jpeg)/',
-        use: ["file-loader"]
+        test: '/\.jpg/',
+        use: {
+          loader: "file-loader",
+          options: {
+            outputPath: "images",
+            name: "[name]_[hash:6].[ext]"
+          }
+        }
       }
     ]
   }
