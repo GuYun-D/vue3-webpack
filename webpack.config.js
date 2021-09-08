@@ -38,7 +38,7 @@ module.exports = {
       //   test: /\.less$/,
       //   use: ["style-loader", "css-loader", "less-loader"]
       // },
-       {
+      {
         test: /\.(less|css)$/,
         use: [
           "style-loader",
@@ -48,12 +48,14 @@ module.exports = {
         ]
       }, {
         test: '/\.jpg$/',
-        use: {
-          loader: "url-loader",
-          options: {
-            // outputPath: "images",
-            name: "[name]_[hash:6].[ext]"
+        type: "asset",
+        parser: {
+          detaUrlCondition: {
+            maxSize: 10000 * 1024
           }
+        },
+        generator: {
+          filename: "img/[name]_[hash: 6][ext]"
         }
       }
     ]
