@@ -305,3 +305,32 @@ new DefinePlugin({
 </body>
 </html>
 ```
+
+# 将项目public中的文件复制到build中
+**copyWebpackPlugin**
+- 安装
+  ```js
+    npm i copy-webpack-plugin -D
+  ```
+- 使用
+  ```js
+  new CopyWebpackPlugin({
+    // 匹配规则集
+    patterns: [
+      {
+        // 从哪复制
+        from: "public",
+        // 复制到哪，to不写，插件可以读取上下文信息
+        to: "./",
+        // 全局配置
+        globOptions: {
+          // 忽略复制规则
+          ignore: [
+            // 忽略所有的index.html文件
+            "**/index.html"
+          ]
+        }
+      }
+    ]
+  })
+  ```

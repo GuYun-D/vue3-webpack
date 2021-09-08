@@ -2,6 +2,7 @@ const path = require('path')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const HtmlWebpackPluign = require('html-webpack-plugin')
 const { DefinePlugin } = require('webpack')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 module.exports = {
   // 配置打包入口
@@ -90,6 +91,25 @@ module.exports = {
     }),
     new DefinePlugin({
       BASE_URL: "'./'"
+    }),
+    new CopyWebpackPlugin({
+      // 匹配规则集
+      patterns: [
+        {
+          // 从哪复制
+          from: "public",
+          // 复制到哪，to不写，插件可以读取上下文信息
+          to: "./",
+          // 全局配置
+          globOptions: {
+            // 忽略复制规则
+            ignore: [
+              // 忽略所有的index.html文件
+              "**/index.html"
+            ]
+          }
+        }
+      ]
     })
   ],
 
