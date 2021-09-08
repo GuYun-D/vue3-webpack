@@ -51,11 +51,28 @@ module.exports = {
         type: "asset",
         parser: {
           detaUrlCondition: {
-            maxSize: 10000 * 1024
+            maxSize: 100 * 1024
           }
         },
         generator: {
-          filename: "img/[name]_[hash: 6][ext]"
+          filename: "img/[name]_[hash:6][ext]"
+        }
+      },
+      // {
+      //   test: /\.(eot|ttf|woff2|woff)$/,
+      //   use: {
+      //     loader: "file-loader",
+      //     options: {
+      //       outputPath: "font",
+      //       filename: "[name]_[hash:6].[ext]"
+      //     }
+      //   }
+      // }
+      {
+        test: /\.(ttf|eot|woff|woff2)$/,
+        type: "asset/resource",
+        generator: {
+          filename: "font/[name]_[hash:6][ext]"
         }
       }
     ]
