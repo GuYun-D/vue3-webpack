@@ -9,7 +9,7 @@ module.exports = {
     // 文件夹名称，要求必须是绝对路径
     path: path.resolve(__dirname, './build'),
     // 打包后生成的文件名
-    filename: "build.js"
+    filename: "buildle.js"
   },
 
   // 配置loader
@@ -47,11 +47,11 @@ module.exports = {
           "less-loader"
         ]
       }, {
-        test: '/\.jpg/',
+        test: '/\.jpg$/',
         use: {
-          loader: "file-loader",
+          loader: "url-loader",
           options: {
-            outputPath: "images",
+            // outputPath: "images",
             name: "[name]_[hash:6].[ext]"
           }
         }

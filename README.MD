@@ -197,6 +197,10 @@ css-loader只负责将css进行打包，但是并没有将打包好的css插入�
 - 作背景图的图片直接使用该loader
 - 作为img的src的资源的就要将该图片通过import的方法导入进来
 
+**url-loader**
+- 和file-loader的工作方式是一样的，但是可以将较小的文件转成base64的url
+- 安装：npm i url-loader -D
+
 # 文件命名规则
 保留原来的文件名，扩展名，同时为了防止重复，包含一个hash值
 使用placeholder就可以完成
