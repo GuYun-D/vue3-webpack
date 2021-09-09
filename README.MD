@@ -523,3 +523,23 @@ new DefinePlugin({
   - 另一个非常好用的功能是配置别名alias：
    - 特别是当我们项目的目录结构比较深的时候，或者一个文件的路径可能需要 ../../../这种路径片段；
    - 我们可以给某些常见的路径起一个别名
+
+# 区分开发环境和生产环境
+```js
+- config
+  - webpack-commen-config.js
+  - webpack-dev-config.js
+  - webpack-prod-config.js
+```
+
+- 合并
+  ```js
+  npm i webpack-merge -D
+  ```
+  - 使用
+  ```js
+  const { merge } = require("webpack-merge")
+  const commenConfig = require("./webpack_commen_config")
+
+  module.exports = merge(commenConfig, {/* 原来的配置 */})
+  ```
