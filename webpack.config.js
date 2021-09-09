@@ -175,5 +175,15 @@ module.exports = {
       },
 
     }
+  },
+
+  resolve: {
+    modules: ["node_modules"],
+    extensions: ['js', 'json', 'jsx', '.vue'],
+    alis: {
+      "js": path.resolve(__dirname, "./src/js"),
+      "@": path.resolve(__dirname, "./src")
+    }
+    
   }
 }
