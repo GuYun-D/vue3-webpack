@@ -151,6 +151,11 @@ module.exports = {
     port: 8081,
     // 如果有些资源webpack中没加载到，那么就可以在这个路径中加载
     // contentBase: "./public",
-    hot: true
+    hot: true,
+    // 设置主机地址
+    // host: "",
+
+    // 是否开启压缩gzip
+    compress: true
   }
 }
