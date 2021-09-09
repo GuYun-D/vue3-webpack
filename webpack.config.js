@@ -156,6 +156,24 @@ module.exports = {
     // host: "",
 
     // 是否开启压缩gzip
-    compress: true
+    compress: true,
+
+    // 配置跨域
+    proxy: {
+      '/api': {
+        target: "https://loaclhost: 8888",
+        // 发送请求的时候去掉/api
+        publicRewrite: {
+          "^/api": ""
+        },
+
+        // 如果代理的时https的地址，要检测这个地址是否携带安全证书
+        secure: false,
+
+        // 修改源
+        changeOrigin: true
+      },
+
+    }
   }
 }
