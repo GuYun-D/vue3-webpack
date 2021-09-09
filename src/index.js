@@ -3,6 +3,12 @@ const { priceFormmat } = require('./js/foemat')
 import './js/element'
 import './js/es'
 
+if (module.hot) {
+  module.hot.accept("./js/element.js", () => {
+    console.log("element模块发生了更新");
+  })
+}
+
 import { createApp } from 'vue'
 import App from './components/App.vue'
 

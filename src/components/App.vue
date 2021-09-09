@@ -10,7 +10,8 @@ export default {
   //   };
   // }
   setup(){
-    const msg = "日"
+    const msg = "vue-loader内置了热模块更新"
+
     return {msg}
   }
 };

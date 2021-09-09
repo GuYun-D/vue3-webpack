@@ -404,3 +404,78 @@ new DefinePlugin({
     ]
   }
   ```
+
+# devServer
+搭建本服务，监听代码的变化并实现实时编译
+
+## 三种自动编译的方法
+- webpack watch mode
+- webpack-dev-server
+- webpack-dev-middleware
+
+## webpack watch mode
+开启watch的两种方式：
+- 配置文件中添加：watch: true
+  
+- 启动webpack命令中添加--watch标识
+  ```js
+    "build": "webpack --watch"
+  ```
+
+这种方式只能实现自动编译，不能实现浏览器的刷新
+
+## webpack-dev-server
+- 安装
+  ```js
+    npm i webpack-dev-server -D
+  ```
+- 在package.json中添加脚本
+  ```js
+    ...
+    "scripts": {
+      ...
+      "serve": "webpack serve"
+    }
+    ...
+  ```
+- 运行
+  npm run serve
+- 启动之后，并没有将源代码打包生成之后并没有将文件写出，build目录是空的，实际上将资源保存到了内存中使用的memfs包来实现的
+- 使用
+  - 开发阶段：contentBase
+  - 生产环境：copy-webpack-plugin
+- 配置devServer
+- 模块的热替换(HMR)
+  指应用程序运行过程中，替换，添加，删除模块，而无需重新刷新整个页面
+  ```js
+  module.exports = {
+    target: "web", // node
+    devServe: {
+      hot: true
+    }
+  }
+  ```
+- 在引入模块的文件中
+  ```js
+  if(module.hot){
+    module.hot.accept("./js/element.js",  () => {
+      console.log("element模块发生了更新")  ;
+    })
+
+    module.hot.accept("(URL)",  () => {
+      console.log("e模块发生了更新")  ;
+    })
+  }
+  ```
+- 说明
+  对js文件需要进行上面的配置，vue文件在vue-loader中已经内置了对热模块更新的配置
+- HMR原理
+  - webpack-dev-server会创建两个服务：
+    - 提供静态资源服务（express）
+    - Socket服务
+  - express server负责直接提供静态资源服务
+  <img src="../vue3-webpack/src/images/HMR原理.png">
+  - 建立长连接双方都可进行通信
+  - 当服务器监听到对应模块发生变化时，会生成两个文件json,js
+  - 通过长连接，可以直接将这两个文件主动发送给客户端
+  - 浏览器拿到两个新文件之后，通过HRM runtime机制，加载这两个文件，并且针对修改的模块进行更新

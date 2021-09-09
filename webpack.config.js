@@ -8,6 +8,7 @@ const { VueLoaderPlugin } = require('vue-loader/dist/index')
 module.exports = {
   mode: "development",
   devtool: "source-map",
+  target: "web",
 
   // 配置打包入口
   entry: './src/index.js',
@@ -143,5 +144,13 @@ module.exports = {
       ]
     }),
     new VueLoaderPlugin()
-  ]
+  ],
+
+  devServer: {
+    open: true,
+    port: 8081,
+    // 如果有些资源webpack中没加载到，那么就可以在这个路径中加载
+    // contentBase: "./public",
+    hot: true
+  }
 }

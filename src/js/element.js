@@ -27,3 +27,5 @@ document.body.appendChild(banner)
 document.body.appendChild(bgDiv)
 document.body.appendChild(iEl)
 // document.body.appendChild(imgEl)
+
+console.log(1);
